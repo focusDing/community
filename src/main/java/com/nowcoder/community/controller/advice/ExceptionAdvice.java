@@ -24,9 +24,7 @@ public class ExceptionAdvice {
             logger.error(element.toString());
         }
 
-        //从请求的消息头中判断是异步请求还是 普通请求？
         String xRequestedWith = request.getHeader("x-requested-with");
-
         if ("XMLHttpRequest".equals(xRequestedWith)) {
             response.setContentType("application/plain;charset=utf-8");
             PrintWriter writer = response.getWriter();
